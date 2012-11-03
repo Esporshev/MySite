@@ -5,55 +5,68 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
 
-	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
-	<![endif]-->
-
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+	<!-- bootstrap CSS framework -->
+	<? Yii::app()->getClientScript()->registerCoreScript('jquery');?>
+	<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/jquery.lightbox.js', CClientScript::POS_HEAD); ?>
+	<?php Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl.'/css/bootstrap.min.css', CClientScript::POS_HEAD); ?>
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
 <body>
+        <div class="container">
+            
+            <div class="span12">
+                <div class="row">
+                    <div class ="span5"><img src="bootstrap/img/header.jpg" class="">
+                        <h2 align="center">ООО "ССВ-ПАРКЕТ"</h2>
+                    </div>
+                    <div class="span4 offset3">
+                        <h1>(495)799-12-93</h1>
+                        <h2>C 9:00 до 20:00 без выходных</h2>
+                    </div>
+                </div> 
+            </div> 
+            <div class="span12">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="container">
+                         <ul class="nav">
+                            <li class="active">
+                                <a href="#">Главная</a>
+                            </li>
+                            <li class="">
+                                <a href="#">Услуги и цены</a>
+                            </li>
+                            <li class="">
+                                <a href="#">Химия</a>
+                            </li>
+                            <li class="">
+                                <a href="#">Массиваня доска</a>
+                            </li>
+                            <li class="">
+                                <a href="#">Оборудование</a>
+                            </li>
+                            <li class="">
+                                <a href="#">Контакты</a>
+                            </li>
+                            <form class="navbar-search pull-right">
+                                <input type="text" class="search-query" placeholder="Поиск по сайту">
+                            </form>
+                          </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<? echo $content; ?>
+        
+ <footer>
+     <hr>
+     <div class="container">
+         <p>&copy; Company 2012</p>
+     </div>
+ </footer>                   
 
-<div class="container" id="page">
-
-	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-	</div><!-- header -->
-
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
-	</div><!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
-
-	<?php echo $content; ?>
-
-	<div class="clear"></div>
-
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
-
-</div><!-- page -->
 
 </body>
 </html>
