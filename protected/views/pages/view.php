@@ -22,7 +22,15 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'idPages',
+		'lft',
+		'rgt',
+		'level',
+		'type',
 		'name',
-		'content'
+		'content',
+		'title',
+		'price',
+		'Vendors_idVendors',
+		'Images_idImages',
 	),
 )); ?>
