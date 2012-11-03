@@ -7,8 +7,8 @@
 
 	<!-- bootstrap CSS framework -->
 	<? Yii::app()->getClientScript()->registerCoreScript('jquery');?>
-	<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/jquery.lightbox.js', CClientScript::POS_HEAD); ?>
-	<?php Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl.'/css/bootstrap.min.css', CClientScript::POS_HEAD); ?>
+	<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/bootstrap.min.js', CClientScript::POS_HEAD); ?>
+	<?php Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl.'/css/bootstrap.css', CClientScript::POS_HEAD); ?>
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
