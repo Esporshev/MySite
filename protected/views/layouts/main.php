@@ -5,68 +5,88 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
 
-	<!-- bootstrap CSS framework -->
-	<? Yii::app()->getClientScript()->registerCoreScript('jquery');?>
-	<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/js/bootstrap.min.js', CClientScript::POS_HEAD); ?>
-	<?php Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl.'/css/bootstrap.css', CClientScript::POS_HEAD); ?>
-
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
 <body>
-        <div class="container">
-            
-            <div class="span12">
-                <div class="row">
-                    <div class ="span5"><img src="bootstrap/img/header.jpg" class="">
-                        <h2 align="center">ООО "ССВ-ПАРКЕТ"</h2>
-                    </div>
-                    <div class="span4 offset3">
-                        <h1>(495)799-12-93</h1>
-                        <h2>C 9:00 до 20:00 без выходных</h2>
-                    </div>
-                </div> 
-            </div> 
-            <div class="span12">
-                <div class="navbar">
-                    <div class="navbar-inner">
-                        <div class="container">
-                         <ul class="nav">
-                            <li class="active">
-                                <a href="#">Главная</a>
-                            </li>
-                            <li class="">
-                                <a href="#">Услуги и цены</a>
-                            </li>
-                            <li class="">
-                                <a href="#">Химия</a>
-                            </li>
-                            <li class="">
-                                <a href="#">Массиваня доска</a>
-                            </li>
-                            <li class="">
-                                <a href="#">Оборудование</a>
-                            </li>
-                            <li class="">
-                                <a href="#">Контакты</a>
-                            </li>
-                            <form class="navbar-search pull-right">
-                                <input type="text" class="search-query" placeholder="Поиск по сайту">
-                            </form>
-                          </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-			<? echo $content; ?>
-        
- <footer>
-     <hr>
-     <div class="container">
-         <p>&copy; Company 2012</p>
-     </div>
- </footer>                   
 
+<div class="content" id="page">
+    <div class="container">
+    <div class="row">
+        <div class="span12">
+	        <div class="page-header" id="header">
+                <h1>ООО "ССВ-ПАРКЕТ" <small>Делаем дерево, а не дерово нас</small></h1>
+            </div>
+	    </div>
+    </div><!-- header -->
+
+    <div class="row" id="navbar">
+        <div class="span12">
+            <?php $this->widget('bootstrap.widgets.TbNavbar', array(
+                'type'=>'null', // null or 'inverse'
+                'brand'=>false,
+                'collapse'=>false, // requires bootstrap-responsive.css
+                'fluid'=>false,
+                'fixed'=>false,
+                'items'=>array(
+                    array(
+                        'class'=>'bootstrap.widgets.TbMenu',
+                        'items'=>array(
+                            array('label'=>'Home', 'url'=>'/site/index', 'active'=>true),
+                            array('label'=>'Admin', 'url'=>'/admin/index'),
+                            array('label'=>'Dropdown', 'url'=>'#', 'items'=>array(
+                                array('label'=>'Action', 'url'=>'#'),
+                                array('label'=>'Another action', 'url'=>'#'),
+                                array('label'=>'Something else here', 'url'=>'#'),
+                                '---',
+                                array('label'=>'NAV HEADER'),
+                                array('label'=>'Separated link', 'url'=>'#'),
+                                array('label'=>'One more separated link', 'url'=>'#'),
+                            )),
+                        ),
+                    ),
+                    array(
+                        'class'=>'bootstrap.widgets.TbMenu',
+                        'htmlOptions'=>array('class'=>'pull-right'),
+                        'items'=>array(
+                            array('label'=>'Link', 'url'=>'#'),
+                            '---',
+                            array('label'=>'Dropdown', 'url'=>'#', 'items'=>array(
+                                array('label'=>'Action', 'url'=>'#'),
+                                array('label'=>'Another action', 'url'=>'#'),
+                                array('label'=>'Something else here', 'url'=>'#'),
+                                '---',
+                                array('label'=>'Separated link', 'url'=>'#'),
+                            )),
+                        ),
+                    ),
+                ),
+            )); ?>
+        </div>
+    </div><!-- navbar -->
+    <div class="row" id="breadcrumbs">
+        <div class="span12">
+        	<?php if(isset($this->breadcrumbs)):?>
+        		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
+        			'links'=>$this->breadcrumbs,
+        		)); ?>
+        	<?php endif?>
+        </div>
+    </div> <!-- breadcrumbs -->
+    
+    
+	<?php echo $content; ?>
+    
+    
+    <div class="row">
+	    <div class="span12" id="footer">
+		    Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
+		    All Rights Reserved.<br/>
+		    <?php echo Yii::powered(); ?>
+	    </div>
+    </div> <!-- footer -->   
+</div>
+</div><!-- page -->
 
 </body>
 </html>

@@ -4,9 +4,7 @@ body
 	padding: 0;
 	color: #555;
 	font: normal 10pt Arial,Helvetica,sans-serif;
-    background-image: url('bg.gif');
-    background-repeat: repeat ;
-	
+	background: #EFEFEF;
 }
 
 #page

@@ -5,12 +5,15 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
+error_reporting(E_ALL);
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'My Web Application',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array('log',
+                     'bootstrap'
+    ),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -23,9 +26,12 @@ return array(
 		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'123456',
+			'password'=>'1234567',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
+            'generatorPaths'=>array(
+                        'bootstrap.gii',
+                    ),
 		),
 		
 	),
@@ -36,6 +42,9 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+        'bootstrap'=>array(
+                'class'=>'ext.bootstrap.components.Bootstrap', // assuming you extracted bootstrap under extensions
+            ),
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(
@@ -69,14 +78,19 @@ return array(
 			'routes'=>array(
 				array(
 					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
+					'levels'=>'error, warning, trace, profile, info',
+                    
 				),
 				// uncomment the following to show log messages on web pages
-				/*
+                /*
 				array(
 					'class'=>'CWebLogRoute',
+                    'categories'=>'*',
+                    'levels'=>'error, warning, trace, profile, info',
+                    'showInFireBug'=>true
+                    
 				),
-				*/
+                */
 			),
 		),
 	),
