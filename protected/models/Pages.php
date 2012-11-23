@@ -2,7 +2,7 @@
 
 class Pages extends CActiveRecord
 {
-    public $type = '1';
+   // public $type = '1';
     public $Vendors_idVendors = '1';
     public $Images_idImages = '1';
     
@@ -47,5 +47,10 @@ class Pages extends CActiveRecord
             'price' => 'Price',
 		);
 	}
+    
+    public function show()
+    {
+        
+    }
     
 }

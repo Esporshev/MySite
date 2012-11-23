@@ -7,18 +7,36 @@ class AdminController extends Controller
 		$this->render('index');
 	}
 	
-    public function actionCreate()
+    public function actionPage_Create()
       {
           $model = new Pages;
-          $root = Pages::model()->findByPk(3);
+          $root = Pages::model()->;
           if(!empty($_POST['Pages']))
           {
               $model->attributes=$_POST['Pages'];
               $model->insertAfter($root);
           }
-          $this->render('create', array('model'=>$model));
+          $this->render('pagesCreate', array('model'=>$model));
       } 
-
+      
+    public function actionView()
+    {
+        $model = new Pages;
+        $model = Pages::model()->findAll(array('order'=>'lft'));
+        $this->render('view', array('model'=>$model));
+    }
+    
+    public function actionPCreate()
+    {
+        $model = new Price;
+        if(!empty($_POST['Price']))
+        {
+            $model->attributes=$_POST['Price'];
+            $model->save();
+        }
+        $this->render('priceListCreate', array('model'=>$model));
+    }
+    
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()

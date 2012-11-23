@@ -15,7 +15,7 @@
     <div class="row">
         <div class="span12">
 	        <div class="page-header" id="header">
-                <h1>ООО "ССВ-ПАРКЕТ" <small>Делаем дерево, а не дерово нас</small></h1>
+                <h1>ООО "ССВ-ПАРКЕТ" <small>Делаем дерево, а не дерево нас!</small></h1>
             </div>
 	    </div>
     </div><!-- header -->
@@ -32,32 +32,14 @@
                     array(
                         'class'=>'bootstrap.widgets.TbMenu',
                         'items'=>array(
-                            array('label'=>'Home', 'url'=>'/site/index', 'active'=>true),
-                            array('label'=>'Admin', 'url'=>'/admin/index'),
-                            array('label'=>'Dropdown', 'url'=>'#', 'items'=>array(
-                                array('label'=>'Action', 'url'=>'#'),
-                                array('label'=>'Another action', 'url'=>'#'),
-                                array('label'=>'Something else here', 'url'=>'#'),
-                                '---',
-                                array('label'=>'NAV HEADER'),
-                                array('label'=>'Separated link', 'url'=>'#'),
-                                array('label'=>'One more separated link', 'url'=>'#'),
+                            array('label'=>'Главная', 'url'=>'/site/index'),
+                            array('label'=>'Услуги и цены', 'url'=>'/admin/index'),
+                            array('label'=>'Каталог', 'url'=>'#', 'items'=>array(
+                                array('label'=>'Химия', 'url'=>'#'),
+                                array('label'=>'Массивная доска', 'url'=>'#'),
                             )),
-                        ),
-                    ),
-                    array(
-                        'class'=>'bootstrap.widgets.TbMenu',
-                        'htmlOptions'=>array('class'=>'pull-right'),
-                        'items'=>array(
-                            array('label'=>'Link', 'url'=>'#'),
-                            '---',
-                            array('label'=>'Dropdown', 'url'=>'#', 'items'=>array(
-                                array('label'=>'Action', 'url'=>'#'),
-                                array('label'=>'Another action', 'url'=>'#'),
-                                array('label'=>'Something else here', 'url'=>'#'),
-                                '---',
-                                array('label'=>'Separated link', 'url'=>'#'),
-                            )),
+                            array('label'=>'Наше оборудование', 'url'=>'#'),
+                            array('label'=>'Контакты', 'url'=>'#')
                         ),
                     ),
                 ),
